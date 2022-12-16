@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/library
+    driverClassName: org.postgresql.Driver
+    user: postgres
+    password: postgres
+  liquibase:
+    changeLog: "classpath:db.changelog-master.xml"
+  jpa:
+    hibernate:
+      ddl-auto: update

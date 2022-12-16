@@ -1,0 +1,29 @@
+plugins {
+    id 'library.java-common-conventions'
+}
+
+group = 'com.company'
+version = '1.0'
+
+dependencies {
+    implementation project(':library-service')
+    implementation project(':library-repository')
+}
+
+
+ext.urlDb = project.hasProperty('urlDb') ? project.getProperty('urlDb') : 'jdbc:postgresql://localhost:5432/library'
+ext.usernameDb = project.hasProperty('usernameDb') ? project.getProperty('usernameDb') : 'postgres'
+ext.passwordDb = project.hasProperty('passwordDb') ? project.getProperty('passwordDb') : 'postgres'
+
+liquibase {
+    activities {
+        main {
+            classpath 'src/main/resources/'
+            changeLogFile 'db.changelog-master.xml'
+            url urlDb
+            username usernameDb
+            password passwordDb
+            driver 'org.postgresql.Driver'
+        }
+    }
+}

@@ -1,0 +1,11 @@
+plugins {
+    id 'library.java-common-conventions'
+}
+
+group 'com.company'
+version '1.0'
+
+
+dependencies {
+    implementation project(':library-repository')
+}

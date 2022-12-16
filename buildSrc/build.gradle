@@ -1,0 +1,27 @@
+plugins {
+    id 'groovy-gradle-plugin'
+}
+group 'com.company'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    gradlePluginPortal()
+}
+
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-gradle-plugin:2.7.3'
+    implementation 'org.liquibase:liquibase-gradle-plugin:2.0.4'
+}
+
+
+subprojects {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+
+}
+
+
